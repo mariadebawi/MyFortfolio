@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     /* Typed */
     var typed = new Typed(".typed", {
-        strings: ["Web Developer", "Software Engineer", "Student"],
+        strings: ["Software Engineer.", "Web Developer.", "Student."],
         typeSpeed: 70,
         loop: true,
         startDelay: 1000,
@@ -28,67 +28,66 @@ $(document).ready(function() {
             480: {
                 items: 2
             },
-            786: {
+            768: {
                 items: 3
             },
             938: {
-                items: 5
+                items: 4
             }
         }
     });
 
 
 
-
     /* easyPie */
-    var skillsOffsetTop = $(".skills_section").offset().top;
-    //console.log(skillsOffsetTop.top);
+
+    var skillsTopOffset = $(".skillsSection").offset().top;
+    var statsTopOffset = $(".statsSection").offset().top;
+    var countUpFinished = false;
     $(window).scroll(function() {
-        // console.log(window.pageYOffset);
-        if (window.pageYOffset > skillsOffsetTop - $(window).height() + 200) {
-            /* EasyPieChart */
+
+        if (window.pageYOffset > skillsTopOffset - $(window).height() + 200) {
+
             $('.chart').easyPieChart({
-                //your options goes here
-                easing: "easeInOut",
-                barColor: "#fff",
+                easing: 'easeInOut',
+                barColor: '#fff',
                 trackColor: false,
                 scaleColor: false,
-                lineWidhth: 4,
+                lineWidth: 4,
                 size: 152,
                 onStep: function(from, to, percent) {
                     $(this.el).find('.percent').text(Math.round(percent));
                 }
-            })
-        }
-    });
-
-
-    /***** Counter **********/
-
-    var StatOffsetTop = $(".statSection").offset().top;
-    var CountUpFinished = false;
-    $(window).scroll(function() {
-        // console.log(window.pageYOffset);
-        if (!CountUpFinished && window.pageYOffset > StatOffsetTop - $(window).height() + 400) {
-            $(".counter").each(function() {
-                var el = $(this);
-                var endVal = parseInt(el.text());
-
-                el.countup(endVal);
             });
-            CountUpFinished = true;
+
+
         }
-    })
+
+        /***** Counter **********/
+
+        if (!countUpFinished && window.pageYOffset > statsTopOffset - $(window).height() + 200) {
+            $(".counter").each(function() {
+                var element = $(this);
+                var endVal = parseInt(element.text());
+
+                element.countup(endVal);
+            })
+
+            countUpFinished = true;
+
+        }
+
+
+    });
 
 
     /******* FANCY BOX ***********/
 
-    $('[data-fancybox]').fancybox({
-        // Options will go here
-    });
+    $("[data-fancybox]").fancybox();
 
-    /* Isotope */
-    (".items").isotope({
+
+    /***********  Isotope ***************/
+    $(".items").isotope({
         filter: '*',
         animationOptions: {
             duration: 1500,
@@ -96,5 +95,25 @@ $(document).ready(function() {
             queue: false
         }
     });
+
+    $("#filters a").click(function() {
+
+        $("#filters .current").removeClass("current");
+        $(this).addClass("current");
+
+        var selector = $(this).attr("data-filter");
+
+        $(".items").isotope({
+            filter: selector,
+            animationOptions: {
+                duration: 1500,
+                easing: 'linear',
+                queue: false
+            }
+        });
+
+        return false;
+    });
+
 
 });
