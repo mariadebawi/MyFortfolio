@@ -84,6 +84,7 @@ a:hover {
 
 .aboutImage {
     max-width: 100%;
+    margin-bottom: 20px;
 }
 
 .btnCv {
@@ -396,4 +397,17 @@ a:hover {
     height: 100%;
     width: 100%;
     background: url("../img/loader.gif") center center no-repeat;
+}
+
+
+/********** @ media***********/
+
+@media (max-width: 768px) {
+    .div-cv {
+        text-align: center;
+        position: relative;
+    }
+    .btnCv {
+        width: 100%;
+    }
 }
