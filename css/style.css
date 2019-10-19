@@ -410,4 +410,10 @@ a:hover {
     .btnCv {
         width: 100%;
     }
+    .slides-navigation {
+        display: none;
+    }
+    #about h4 {
+        text-align: center;
+    }
 }

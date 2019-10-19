@@ -42,7 +42,10 @@ $(document).ready(function() {
     /* Owl Carousel */
     $('.owl-carousel').owlCarousel({
         loop: true,
-        items: 4,
+        items: 3,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
         responsive: {
             0: {
                 items: 1
