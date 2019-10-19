@@ -331,3 +331,50 @@ a:hover {
 .items {
     padding: 0;
 }
+
+
+/************** Footer ****************/
+
+.copyrightSection {
+    padding: 30px 5px;
+    background-color: #000;
+    color: #fff;
+}
+
+.copyrightSection p {
+    margin: 0;
+}
+
+
+/***************** NAvigation ****************************/
+
+#navigation {
+    background-color: #e74c3c;
+    padding: 20px 10px;
+    z-index: 100;
+    width: 100%;
+}
+
+#navigation li {
+    padding: 0 10px;
+}
+
+#navigation li a {
+    color: #fff;
+    font-weight: 500;
+}
+
+#navigation .navbar-brand,
+#navigation .navbar-brand:hover {
+    color: #fff;
+}
+
+#navigation .navbar-toggler-icon {
+    background-image: url("../img/icons/menu.png");
+    background-size: 100%;
+}
+
+.FixedNav #navigation {
+    position: fixed;
+    top: 0;
+}

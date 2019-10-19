@@ -116,4 +116,21 @@ $(document).ready(function() {
     });
 
 
+
+    /***********  Navigation ************/
+    const nav = $("#navigation");
+    const navTop = nav.offset().top;
+    $(window).on("scroll", stickNavigation);
+
+    function stickNavigation() {
+        var body = $("body");
+        if ($(window).scrollTop() >= navTop) {
+            body.css("padding-top", nav.outerHeight() + "px"); //make the nav smotthlyyyyyyyyy
+            body.addClass('FixedNav');
+        } else {
+            body.css("padding-top", 0);
+            body.removeClass('FixedNav');
+        }
+    }
+
 });
