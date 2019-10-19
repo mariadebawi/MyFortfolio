@@ -1,3 +1,25 @@
+/************* Welcome to my costum js ************* */
+
+
+/****************** Loading ************************/
+
+$(window).on("load", function() {
+    $(".loader .inner").fadeOut(500, function() {
+        $(".loader").fadeOut(750); // gif inner fade the first
+    });
+});
+
+//loading the images
+$(".items").isotope({
+    filter: '*',
+    animationOptions: {
+        duration: 1500,
+        easing: 'linear',
+        queue: false
+    }
+});
+
+/****************************************************/
 $(document).ready(function() {
 
     /* superslides */
@@ -87,15 +109,6 @@ $(document).ready(function() {
 
 
     /***********  Isotope ***************/
-    $(".items").isotope({
-        filter: '*',
-        animationOptions: {
-            duration: 1500,
-            easing: 'linear',
-            queue: false
-        }
-    });
-
     $("#filters a").click(function() {
 
         $("#filters .current").removeClass("current");
