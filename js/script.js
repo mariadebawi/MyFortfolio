@@ -118,6 +118,18 @@ $(document).ready(function() {
 
 
     /***********  Navigation ************/
+
+    //navigation slowly 
+    $("#navigation li a").click(function(e) {
+        e.preventDefault();
+        var targetElement = $(this).attr("href");
+        console.log(targetElement);
+        var targetPosition = $(targetElement).offset().top;
+        console.log(targetPosition);
+        $("html , body").animate({ scrollTop: targetPosition - 50 }, "slow");
+    });
+
+
     const nav = $("#navigation");
     const navTop = nav.offset().top;
     $(window).on("scroll", stickNavigation);
